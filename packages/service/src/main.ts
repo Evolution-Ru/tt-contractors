@@ -65,7 +65,7 @@ const createServer = () => {
             '/api-docs/swagger/assets',
             express.static('node_modules/swagger-ui-dist')
         )
-        app.use(serveStatic(path.join(__dirname, '..', '..', 'front', 'build')))
+        app.use('/admin', serveStatic(path.join(__dirname, '..', '..', 'front', 'build')))
        
         app.use(bodyParser.json())
         app.use(
