@@ -1,0 +1,29 @@
+{
+  "name": "ohuenniy-poisk",
+  "version": "1.0.0",
+  "dependencies": {
+    "lerna": "^3.4.3",
+    "react-create-app": "^2.0.6",
+    "react-scripts-ts": "^3.1.0",
+    "tslint": "^5.11.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "typescript": "^3.1.6"
+  },
+  "scripts": {
+    "start": "npm install && lerna bootstrap && lerna run build --parallel && lerna run --scope service start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "--cwd /packages/service start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlaPS/c3x-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlaPS/c3x-test/issues"
+  },
+  "homepage": "https://github.com/FlaPS/c3x-test#readme"
+}

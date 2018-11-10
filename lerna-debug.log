@@ -1,0 +1,9 @@
+0 silly argv { _: [ 'bootstrap' ],
+0 silly argv   lernaVersion: '3.4.3',
+0 silly argv   '$0': 'C:\\Users\\xiaomi\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js' }
+1 notice cli v3.4.3
+2 verbose rootPath C:\github\c3x-test
+3 error JSONError: Unexpected token } in JSON at position 603 while parsing near '...": "^16.4.18",  },  "peerDependenc...' in ..\react-fp\package.json
+3 error     at module.exports (C:\github\c3x-test\node_modules\parse-json\index.js:26:19)
+3 error     at parse (C:\github\c3x-test\node_modules\load-json-file\index.js:8:29)
+3 error     at pify.then.data (C:\github\c3x-test\node_modules\load-json-file\index.js:10:67)

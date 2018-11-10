@@ -1,0 +1,14 @@
+{
+  "port": 3001,
+  "seed": 0,
+  "db": {
+    "client": "mysql",
+    "connection": {
+      "host": "127.0.0.1",
+      "user": "root",
+      "password": "root",
+      "multipleStatements": true,
+      "database": "deals"
+    }
+  }
+}

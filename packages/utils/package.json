@@ -1,0 +1,12 @@
+{
+  "name": "@sha/utils",
+  "version": "0.1.0",
+  "main": "dist/index.ts",
+  "files": [
+    "src"
+  ],
+  "typings": "src",
+  "scripts": {
+    "watch": "tsc -w"
+  }
+}
