@@ -65,7 +65,7 @@ const createServer = () => {
             '/api-docs/swagger/assets',
             express.static('node_modules/swagger-ui-dist')
         )
-        app.use(serveStatic(path.join(__dirname, '..', '..', 'front', 'build')))
+        app.use(serveStatic(path.join(__dirname, '..', '..', 'front', 'build'), {etag}))
        
         app.use(bodyParser.json())
         app.use(
@@ -149,7 +149,7 @@ const createServer = () => {
     const app = server.build()
 
     if (!_.isEqual(process.env.NODE_ENV, 'test')) {
-        app.listen(config.port)
+        app.listen(config.port, '0.0.0.0')
         console.info('Server is listening on port : ' + config.port)
     }
 }

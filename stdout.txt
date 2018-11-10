@@ -1,0 +1,7 @@
+
+> ohuenniy-poisk@1.0.0 start C:\github\ohuenniy-poisk
+> npm install && lerna bootstrap && lerna run --scope service start
+
+audited 59497 packages in 12.696s
+found 1 high severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
