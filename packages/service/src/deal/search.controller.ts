@@ -56,7 +56,12 @@ export class SearchController implements interfaces.Controller {
         }
         const knex = await getKnex()
 
-        const whereClause = modelColumns.map(col =>  col + " like '%" + request.query.search + "%' ").join(' OR ')
+        const words = request.query.search.split(' ');
+
+        const whereClause = words.map( word =>
+            '( ' + modelColumns.map(col =>  col + " like '%" + word + "%' ").join(' OR ') +') '
+        ).join(' AND ')
+        
         console.log('WHERE CLAUSE', whereClause)
         const result = await knex.select().whereRaw(whereClause).from(tableName)
 
