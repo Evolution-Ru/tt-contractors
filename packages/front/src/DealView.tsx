@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Modal} from 'antd'
+import {Modal} from 'antd'
 import {Deal} from './Deal'
 import Input from 'antd/lib/input/Input'
 
@@ -66,27 +66,36 @@ export default class DealView extends
                 confirmLoading={confirmLoading}
                 onCancel={this.props.onCancel}
             >
-                Представитель
-                {createInput('ownerLastName', 'Фамилия')}
-                {createInput('ownerFirstName', 'Имя')}
-                {createInput('ownerMidName', 'Отчество')}
-                {createInput('ownerPassport', 'Паспорт')}
-                {createInput('ownerPassportDate', 'Дата выдачи')}
 
                 Подписант
                 {createInput('signLastName', 'Фамилия')}
                 {createInput('signFirstName', 'Имя')}
                 {createInput('signMidName', 'Отчество')}
-                {createInput('signPassport', 'Паспорт')}
-                {createInput('signPassportDate', 'Дата выдачи')}
+                {createInput('signPosition', 'Должность')}
+                {createInput('signReason', 'Основание')}
 
-                Данные контрагента
+                Паспорт подписанта
+                {createInput('signPassportNumber', 'Серия и номер')}
+                {createInput('signPassportDate', 'Дата выдачи')}
+                {createInput('signPassportDepartment', 'Пункт выдачи')}
+                {createInput('signPassportDepartmentCode', 'Код подразделения')}
+
+                Подрядчик
                 {createInput('type', 'Тип')}
-                {createInput('fullCompanyName', 'Полное наименование')}
-                {createInput('shortCompanyName', 'Краткое наименование')}
+                {createInput('fullLegalName', 'Полное наименование')}
+                {createInput('shortLegalName', 'Краткое наименование')}
+                {createInput('legalAddress', 'Адрес')}
                 {createInput('inn', 'ИНН')}
                 {createInput('kpp', 'КПП')}
                 {createInput('ogrn', 'ОГРН')}
+                {createInput('phone', 'Телефон')}
+
+                Банковские реквизиты
+                {createInput('bankName', 'Название')}
+                {createInput('BIK', 'БИК')}
+                {createInput('checkingAccount', 'Расчетный счет')}
+                {createInput('correspondentAccount', 'Кореспондентский счет')}
+                {createInput('bankComment', 'Комментарий')}
 
                 Договор
                 {createInput('agreementNumber', 'Номер')}

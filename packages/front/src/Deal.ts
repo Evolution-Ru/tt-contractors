@@ -1,23 +1,35 @@
 
 export type Deal = Partial<{
     id: number
-    ownerFirstName: string
-    ownerLastName?: string
-    ownerMidName?: string
-    ownerPassport?: string
-    ownerPassportDate?: string
+
+    agreementNumber?: string
+    agreementDate?: string
+
     signFirstName?: string
     signLastName?: string
     signMidName?: string
-    signPassport?: string
+    signPosition?: string
+    signReason?: string
+
+    signPassportNumber?: string
     signPassportDate?: string
-    fullCompanyName?: string
-    shortCompanyName?: string
-    // * - тип (ЮЛ, ИП, ФЛ)
-    type?: string
+    signPassportDepartment?: string
+    signPassportDepartmentCode?: string
+
+    type?: string // * - тип (ЮЛ, ИП, ФЛ)
+    fullLegalName?: string
+    shortLegalName?: string
+    legalAddress?: string
     inn?: string
     kpp?: string
     ogrn?: string
-    agreementNumber?: string
-    agreementDate?: string
+
+    phone?: string
+
+    bankName?: string
+    BIK?: string
+    checkingAccount?: string
+    correspondentAccount?: string
+    bankComment?: string
+
 }>
