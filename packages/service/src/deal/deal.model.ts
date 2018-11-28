@@ -66,5 +66,5 @@ export class DealModel {
     @ApiModelProperty()
     correspondentAccount?: string = 'string'
     @ApiModelProperty()
-    bankComment?: string
+    bankComment?: string = 'string'
 }

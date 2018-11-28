@@ -8,11 +8,6 @@ const concatProps = (...props: string[]) => (obj: any) =>
 const columns = [
     {
         title: 'Представитель',
-        dataIndex: 'ownerLastName',
-        render: (text: any, record: Deal) =>
-            concatProps('ownerLastName', 'ownerFirstName', 'ownerMidName')(record),
-    }, {
-        title: 'Представитель',
         dataIndex: 'signLastName',
         render: (text: any, record: Deal) =>
             concatProps('signLastName', 'signFirstName', 'signMidName')(record),
