@@ -42,7 +42,7 @@ export class DealModel {
     @ApiModelProperty()
     signPassportDepartmentCode?: string = 'string'
     @ApiModelProperty()
-    type?: string // * - тип (ЮЛ, ИП, ФЛ) = 'string
+    type?: string = 'string' // * - тип (ЮЛ, ИП, ФЛ) = 'string
     @ApiModelProperty()
     fullLegalName?: string = 'string'
     @ApiModelProperty()
