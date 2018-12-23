@@ -18,8 +18,6 @@ export class DealModel {
     id: number = 0
 
     @ApiModelProperty()
-    ownerFirstName: string = 'string'
-    @ApiModelProperty()
     agreementNumber?: string = 'string'
     @ApiModelProperty()
     agreementDate?: string = 'string'
