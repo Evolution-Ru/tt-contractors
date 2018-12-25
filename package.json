@@ -14,7 +14,7 @@
   "scripts": {
     "start": "npm install && lerna bootstrap && lerna run build && lerna run --scope service start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "backend": "--cwd /packages/service start"
+    "backend": "npm install && lerna bootstrap && lerna run build && lerna run --scope service backend"
   },
   "repository": {
     "type": "git",
