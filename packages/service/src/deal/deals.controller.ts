@@ -102,6 +102,7 @@ export class DealsController implements interfaces.Controller {
       400: { description: 'Parameters fail' },
     },
   })
+
   @httpPatch('/')
   public async patchDeal(
     request: express.Request,

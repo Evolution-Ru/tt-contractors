@@ -33,7 +33,7 @@ class App extends React.Component<any, AppState> {
 
     getAll = () =>
         api.get('deals')
-            .then( response => this.setState({data: response.data}))
+            .then(response => this.setState({data: response.data}))
 
     onSearch = (event: React.FormEvent<any>) => {
         const search = event.target['value'] as string
@@ -56,16 +56,27 @@ class App extends React.Component<any, AppState> {
 
     onAdd = (deal: Deal) =>
         api.post('deals', deal)
-            .then( response => this.setState({data: [response.data].concat(this.state.data), dealViewIsOpen: false}))
+            .then(response => this.setState({data: [response.data].concat(this.state.data), dealViewIsOpen: false}))
 
     onPatch = (deal: Deal) =>
         api.patch('deals', deal)
             .then(response => {
-                const restArray = this.state.data.filter( ({id}: Deal) => deal.id !== id)
+                const restArray = this.state.data.filter(({id}: Deal) => deal.id !== id)
 
                 this.setState({
                     dealViewIsOpen: false,
                     data: [response.data].concat(restArray),
+                })
+            })
+
+    onDelete = (deal: Deal) =>
+        api.get('deals/' + deal.id + '/delete')
+            .then(response => {
+                const restArray = this.state.data.filter(({id}: Deal) => deal.id !== id)
+
+                this.setState({
+                    dealViewIsOpen: false,
+                    data: restArray,
                 })
             })
 
@@ -80,26 +91,27 @@ class App extends React.Component<any, AppState> {
 
     public render() {
         return (<div>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
-                        <Input
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <Input
 
-                            placeholder='input search text'
-                            value={this.state.search}
-                            onChange={this.onSearch}
-                        />
-                        <Button onClick={this.onRequestAdd}>Добавить</Button>
-                    </div>
-                    <DealList
-                        data={this.state.data}
-                        onRowClick={this.onSelect}
+                        placeholder='input search text'
+                        value={this.state.search}
+                        onChange={this.onSearch}
                     />
-                    <DealView
-                        deal={this.state.deal}
-                        onCancel={this.onClose}
-                        onSuccess={this.onSuccess}
-                        visible={this.state.dealViewIsOpen}
-                    />
+                    <Button onClick={this.onRequestAdd}>Добавить</Button>
                 </div>
+                <DealList
+                    data={this.state.data}
+                    onRowClick={this.onSelect}
+                    onDeleteConfirm={this.onDelete}
+                />
+                <DealView
+                    deal={this.state.deal}
+                    onCancel={this.onClose}
+                    onSuccess={this.onSuccess}
+                    visible={this.state.dealViewIsOpen}
+                />
+            </div>
         )
     }
 }
