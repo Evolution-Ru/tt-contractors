@@ -7,3 +7,5 @@
 /package-lock.json
 /packages/*/package-lock.json
 
+packages/service/built
+packages/front/build

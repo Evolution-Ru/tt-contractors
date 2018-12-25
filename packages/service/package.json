@@ -13,7 +13,7 @@
     "tslint": "echo \"TsLint...\" && node node_modules/gulp/bin/gulp.js tslint",
     "dev": "echo \"Developing...\" && node node_modules/gulp/bin/gulp.js dev",
     "build": "echo \"Building...\" && node node_modules/gulp/bin/gulp.js build",
-    "start": "echo \"Starting...\" && ts-node -D -T --require ts-node/register/transpile-only --require tsconfig-paths/register src/main",
+    "start": "echo \"Starting...\" && ts-node -D -T --require ts-node/register/transpile-only --require tsconfig-paths/register built/main",
     "precommit": "pretty-quick --staged"
   },
   "repository": {
