@@ -17,6 +17,7 @@ class DealList extends React.Component<{
     }
 
     render() {
+
         return (
             <Table
                 columns={[
@@ -29,10 +30,10 @@ class DealList extends React.Component<{
                             </a>,
                     }, {
                         title: 'Наименования',
-                        dataIndex: 'fullCompanyName',
+                        dataIndex: 'fullLegalName',
                         render: (text: any, record: Deal) =>
                             <a onClick={this.props.onRowClick}>
-                                {concatProps('type', 'shortCompanyName', 'fullCompanyName')(record)}
+                                {concatProps('type', 'shortLegalName', 'fullLegalName')(record)}
                             </a>,
                     },
                     {
