@@ -22,18 +22,18 @@ class DealList extends React.Component<{
             <Table
                 columns={[
                     {
-                        title: 'Представитель',
+                        title: 'Подписант',
                         dataIndex: 'signLastName',
                         render: (text: any, record: Deal) =>
                             <a onClick={() => this.props.onRowClick(record)}>
                                 {concatProps('signLastName', 'signFirstName', 'signMidName')(record)}
                             </a>,
                     }, {
-                        title: 'Наименования',
+                        title: 'Контрагент',
                         dataIndex: 'fullLegalName',
                         render: (text: any, record: Deal) =>
                             <a onClick={() => this.props.onRowClick(record)}>
-                                {concatProps('type', 'shortLegalName', 'fullLegalName')(record)}
+                                {concatProps('type', 'shortLegalName', 'inn')(record)}
                             </a>,
                     },
                     {
