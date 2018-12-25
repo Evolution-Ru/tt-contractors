@@ -25,14 +25,14 @@ class DealList extends React.Component<{
                         title: 'Представитель',
                         dataIndex: 'signLastName',
                         render: (text: any, record: Deal) =>
-                            <a onClick={()=>this.props.onRowClick(record)}>
+                            <a onClick={() => this.props.onRowClick(record)}>
                                 {concatProps('signLastName', 'signFirstName', 'signMidName')(record)}
                             </a>,
                     }, {
                         title: 'Наименования',
                         dataIndex: 'fullLegalName',
                         render: (text: any, record: Deal) =>
-                            <a onClick={()=>this.props.onRowClick(record)}>
+                            <a onClick={() => this.props.onRowClick(record)}>
                                 {concatProps('type', 'shortLegalName', 'fullLegalName')(record)}
                             </a>,
                     },
@@ -40,7 +40,7 @@ class DealList extends React.Component<{
                         title: 'Договор',
                         dataIndex: 'agreementNumber',
                         render: (text: any, record: Deal) =>
-                            <a onClick={()=>this.props.onRowClick(record)}>
+                            <a onClick={() => this.props.onRowClick(record)}>
                                 {concatProps('agreementNumber', 'agreementDate')(record)}
                             </a>,
                     }, {
