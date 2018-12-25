@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Table} from 'antd'
 import {Deal} from './Deal'
-import Popconfirm from 'antd/es/popconfirm'
+import PopConfirm from 'antd/es/popconfirm'
 
 const concatProps = (...props: string[]) => (obj: any) =>
     props.map(prop => obj[prop]).filter(value => value !== undefined && value !== null).join(' ')
@@ -46,9 +46,9 @@ class DealList extends React.Component<{
                         title: 'Action',
                         key: 'x',
                         render: (text: any, record: Deal) =>
-                            <Popconfirm title='Sure to delete?' onConfirm={() => this.props.onDeleteConfirm(record)}>
+                            <PopConfirm title='Sure to delete?' onConfirm={() => this.props.onDeleteConfirm(record)}>
                                 <a href='javascript:;'>Delete</a>
-                            </Popconfirm>,
+                            </PopConfirm>,
                     },
                 ]}
                 dataSource={this.props.data}
