@@ -27,7 +27,6 @@ gulp.task("clean", function() {
     .pipe(clean({ force: true }));
 });
 
-
 gulp.task("copy:src", ["clean"], function() {
   return gulp.src([path.app.src]).pipe(gulp.dest(path.built));
 });

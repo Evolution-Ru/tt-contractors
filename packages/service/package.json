@@ -9,11 +9,11 @@
     "package": "echo \"Packaging...\" && npm run clean && node node_modules/typescript/bin/tsc -p tsconfig.package.json",
     "test": "echo \"Testing...\" && node node_modules/gulp/bin/gulp.js test",
     "test:coverage": "echo \"Testing coverage...\" && node node_modules/gulp/bin/gulp.js test:coverage",
-    "clean": "echo \"Cleaning...\" && node node_modules/gulp/bin/gulp.js clean",
+    "clean": "echo \"Cleaning...\" && node node_modules/gulp/bin/gulp.js clean && rm -rf node_modules",
     "tslint": "echo \"TsLint...\" && node node_modules/gulp/bin/gulp.js tslint",
     "dev": "echo \"Developing...\" && node node_modules/gulp/bin/gulp.js dev",
     "build": "echo \"Building...\" && node node_modules/gulp/bin/gulp.js build",
-    "start": "echo \"Starting...\" &&  ts-node -D -T --require ts-node/register/transpile-only --require tsconfig-paths/register src/main",
+    "start": "echo \"Starting...\" && ts-node -D -T --require ts-node/register/transpile-only --require tsconfig-paths/register src/main",
     "precommit": "pretty-quick --staged"
   },
   "repository": {
