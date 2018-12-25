@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FlaPS/c3x-test.git"
+    "url": "git+https://github.com/chukaev/ohuenniy-poisk.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FlaPS/c3x-test/issues"
+    "url": "https://github.com/chukaev/ohuenniy-poisk/issues"
   },
-  "homepage": "https://github.com/FlaPS/c3x-test#readme"
+  "homepage": "https://github.com/chukaev/ohuenniy-poisk#readme"
 }
