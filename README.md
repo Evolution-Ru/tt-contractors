@@ -20,8 +20,8 @@ get back and install lerna & run some scripts
 ```
 cd ../../
 npm i -g lerna
-lerna bootstra
-lerna run dev --parallel
+npm run start
+
 ```
 Watch for no errors in the console, other case repeate the previous steps please =)
 
