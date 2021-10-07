@@ -51,7 +51,7 @@ export default class DealView extends
 
         const createInput = (prop: string, label?: string ) =>
                 <Input
-                    addonBefore={<div style={{width: '100px'}}>{label}</div>}
+                    addonBefore={<div style={{width: '250px'}}>{label}</div>}
                     value={this.state.deal[prop] || ''}
                     onChange={this.updateProp(prop)}
                 />
@@ -65,6 +65,7 @@ export default class DealView extends
                 onOk={this.handleOk}
                 confirmLoading={confirmLoading}
                 onCancel={this.props.onCancel}
+                width={620}
             >
 
                 Подписант

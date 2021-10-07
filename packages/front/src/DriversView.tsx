@@ -75,7 +75,7 @@ export default class DriversView extends React.Component<{ deal: Deal | null, vi
 
         const createInput = (driverIndex: number, prop: string, label?: string) =>
             <Input
-                addonBefore={<div style={{width: '100px'}} title={label}>{label}</div>}
+                addonBefore={<div style={{width: '250px'}} title={label}>{label}</div>}
                 value={this.state.drivers[driverIndex][prop] || ''}
                 onChange={this.updateProp(driverIndex, prop)}
             />
@@ -116,6 +116,7 @@ export default class DriversView extends React.Component<{ deal: Deal | null, vi
                 onOk={this.handleOk}
                 confirmLoading={confirmLoading}
                 onCancel={this.props.onCancel}
+                width={620}
             >
                 {renderSpin()}
 
