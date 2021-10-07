@@ -1,7 +1,6 @@
 {
   "name": "service",
   "version": "0.0.2",
-  "description": "Generate and serve swagger.json",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "typings": "./dist/main.d.ts",
@@ -17,33 +16,6 @@
     "backend": "forever start built/main.js",
     "precommit": "pretty-quick --staged"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/olivierlsc/swagger-specification-ts.git"
-  },
-  "author": "Olivier LIN-SI-CHENG",
-  "license": "MIT",
-  "keywords": [
-    "inversify",
-    "inversifyjs",
-    "swagger",
-    "swagger2",
-    "swagger-ui",
-    "typescript",
-    "expressjs",
-    "express",
-    "api rest",
-    "documentation",
-    "decorator",
-    "generator",
-    "swagger.json",
-    "json",
-    "rest"
-  ],
-  "bugs": {
-    "url": "https://github.com/olivierlsc/swagger-specification-ts/issues"
-  },
-  "homepage": "https://github.com/olivierlsc/swagger-specification-ts#readme",
   "dependencies": {
     "@types/body-parser": "^1.17.0",
     "@types/chai": "^4.1.3",

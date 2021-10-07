@@ -7,15 +7,21 @@ import {
   InversifyExpressServer,
   TYPE
 } from 'inversify-express-utils'
-import { DealsController } from './deal/deals.controller'
+import * as _ from 'lodash'
+import * as path from 'path'
 import * as swagger from './lib/swagger-express-ts'
 import { SwaggerDefinitionConstant } from './lib/swagger-express-ts'
+
 const config = require('../config.json')
+
+import { DealsController } from './deal/deals.controller'
 import { DealController } from './deal/deal.controller'
 import { DealsService } from './deal/deals.service'
-import * as _ from 'lodash'
-import * as serveStatic from 'serve-static'
-import * as path from 'path'
+
+import {DriversController} from './driver/drivers.controller'
+import {DriversService} from './driver/drivers.service'
+import {DriverSearchController} from './driver/driver.search.controller'
+
 // import models
 import './deal/deal.model'
 import {SearchController} from './deal/search.controller'
@@ -44,6 +50,21 @@ container
   .bind<DealsService>(DealsService.TARGET_NAME)
   .to(DealsService)
   .inSingletonScope()
+
+container
+    .bind<interfaces.Controller>(TYPE.Controller)
+    .to(DriversController)
+    .inSingletonScope()
+    .whenTargetNamed(DriversController.TARGET_NAME)
+container
+    .bind<interfaces.Controller>(TYPE.Controller)
+    .to(DriverSearchController)
+    .inSingletonScope()
+    .whenTargetNamed(DriverSearchController.TARGET_NAME)
+container
+    .bind<DriversService>(DriversService.TARGET_NAME)
+    .to(DriversService)
+    .inSingletonScope()
 // create server
 
 
@@ -60,8 +81,8 @@ const createServer = () => {
             }
             return next()
         })
-        app.use('/admin', express.static(path.join(__dirname, '..', '..', 'front', 'build')))
-        app.use('/static', express.static(path.join(__dirname, '..', '..', 'front', 'build', 'static')))
+        app.use('/admin', express.static(path.join(__dirname, '../../front/build')))
+        app.use('/static', express.static(path.join(__dirname, '../../front/build/static')))
         app.use('/api-docs/swagger', express.static('swagger'))
         app.use('/api-docs/swagger/assets',
             express.static('node_modules/swagger-ui-dist')

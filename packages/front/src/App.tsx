@@ -4,6 +4,7 @@ import {Deal} from './Deal'
 import DealList from './DealList'
 import axios from 'axios'
 import DealView from './DealView'
+import DriversView from './DriversView'
 import Button from 'antd/lib/button/button'
 import Input from 'antd/lib/input/Input'
 
@@ -12,7 +13,9 @@ type AppState = Partial<{
     data: Deal[],
     search: string,
     dealViewIsOpen: boolean,
-    deal: Deal
+    deal: Deal,
+    driversViewIsOpen: boolean,
+    driversDeal: Deal | null,
 }>
 
 const api = axios.create({baseURL: window.location.hostname === 'localhost' ? 'http://localhost:3001/' : '/'})
@@ -24,6 +27,8 @@ class App extends React.Component<any, AppState> {
         search: '',
         dealViewIsOpen: false,
         deal: {} as Deal,
+        driversViewIsOpen: false,
+        driversDeal: null,
     }
 
     componentDidMount() {
@@ -89,6 +94,12 @@ class App extends React.Component<any, AppState> {
             ? this.onPatch(deal)
             : this.onAdd(deal)
 
+    onCloseDrivers = () =>
+        this.setState({driversViewIsOpen: false, driversDeal: null})
+
+    onDriversClick = (deal: Deal) =>
+        this.setState({driversViewIsOpen: true, driversDeal: deal})
+
     public render() {
         return (<div>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -104,12 +115,20 @@ class App extends React.Component<any, AppState> {
                     data={this.state.data}
                     onRowClick={this.onSelect}
                     onDeleteConfirm={this.onDelete}
+                    onDriversClick={this.onDriversClick}
                 />
                 <DealView
                     deal={this.state.deal}
                     onCancel={this.onClose}
                     onSuccess={this.onSuccess}
                     visible={this.state.dealViewIsOpen}
+                />
+
+                <DriversView
+                    deal={this.state.driversDeal}
+                    onCancel={this.onCloseDrivers}
+                    visible={this.state.driversViewIsOpen}
+                    api={api}
                 />
             </div>
         )

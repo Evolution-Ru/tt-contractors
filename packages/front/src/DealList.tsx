@@ -8,8 +8,10 @@ const concatProps = (...props: string[]) => (obj: any) =>
 
 
 class DealList extends React.Component<{
-    data: Deal[], onRowClick: (deal: Deal)
-        => any, onDeleteConfirm: (deal: Deal) => any
+    data: Deal[],
+    onRowClick: (deal: Deal) => any,
+    onDeleteConfirm: (deal: Deal) => any,
+    onDriversClick: (deal: Deal) => any
 }> {
     state = {
         selectedRowKeys: [], // Check here to configure the default column
@@ -43,7 +45,16 @@ class DealList extends React.Component<{
                             <a onClick={() => this.props.onRowClick(record)}>
                                 {concatProps('agreementNumber', 'agreementDate')(record)}
                             </a>,
-                    }, {
+                    },
+                    {
+                        title: 'Водители',
+                        key: 'drivers',
+                        render: (text: any, record: Deal) =>
+                            <a onClick={() => this.props.onDriversClick(record)}>
+                                Водители
+                            </a>,
+                    },
+                    {
                         title: 'Action',
                         key: 'x',
                         render: (text: any, record: Deal) =>

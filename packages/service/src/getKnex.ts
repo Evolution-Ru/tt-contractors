@@ -1,12 +1,12 @@
 import {DealModel} from './deal/deal.model'
-
-const config = require('../config.json')
+import {DriverModel} from './driver/driver.model'
 import * as Knex from 'knex'
 
+const config = require('../config.json')
 
 function makeRandomString() {
     let text = ''
-    let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     const l = Math.random() * 20
     for (let i = 0; i < l; i++)
         text += possible.charAt(Math.floor(Math.random() * possible.length))
@@ -16,7 +16,9 @@ function makeRandomString() {
 
 let knexInstance: any
 export const tableName = 'deals'
+export const driversTableName = 'drivers'
 export let modelColumns = [] as string[]
+export let driversModelColumns = [] as string[]
 
 export default async (): Promise<Knex> => {
 
@@ -56,6 +58,40 @@ export default async (): Promise<Knex> => {
         })
     }
 
+    const driverModel = new DriverModel()
+    driversModelColumns = Object
+        .keys(driverModel)
+        .filter(key => key !== 'id' && key !== 'dealId')
+
+    console.log('Columns driver ', driversModelColumns)
+
+    const hasDriversTable = await knex.schema.hasTable('drivers')
+    console.log('hasDriversTable', hasDriversTable)
+    if ((hasDriversTable) !== true) {
+        console.log('create table')
+        await knex.schema.createTable('drivers', (table: Knex.CreateTableBuilder) => {
+            driversModelColumns.map(col => table.string(col))
+            table.increments('id')
+                .unsigned()
+                .unique()
+                .primary()
+            table.integer('dealId')
+                .unsigned()
+                .index()
+                .references('id')
+                .inTable('deals')
+        })
+    } else {
+        await knex.schema.table('drivers', async (table: Knex.CreateTableBuilder) => {
+            for (let i = 0; i < driversModelColumns.length; i++) {
+                if ((await knex.schema.hasColumn('drivers', driversModelColumns[i])) === false) {
+                    console.log('Has no column', driversModelColumns[i])
+                    await knex.schema.table('drivers', (table: Knex.CreateTableBuilder) => table.string(driversModelColumns[i]))
+                }
+            }
+        })
+    }
+
     const db = knex.table(config.db.connection.database)
     if (config.seed) {
         const array = []
@@ -68,8 +104,7 @@ export default async (): Promise<Knex> => {
         console.log('Seed data into', config.db.connection.database)
         try {
             await knex.insert(array).into(config.db.connection.database)
-        }
-        catch(e) {
+        } catch (e) {
             console.log(e)
         }
         console.log(array[0])
