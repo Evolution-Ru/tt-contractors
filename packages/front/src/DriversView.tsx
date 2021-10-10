@@ -90,7 +90,7 @@ export default class DriversView extends React.Component<{ deal: Deal | null, vi
                     <h3>Водитель {index + 1}</h3>
 
                     {createInput(index, 'fullName', 'ФИО')}
-                    {createInput(index, 'phone', 'Номер контактного телефона')}
+                    {createInput(index, 'phone', '№ контактного телефона')}
                     {createInput(index, 'birthDate', 'Дата рождения')}
                     {createInput(index, 'passportNumber', 'Серия / номер паспорта')}
                     {createInput(index, 'passportDate', 'Дата выдачи')}
@@ -98,12 +98,12 @@ export default class DriversView extends React.Component<{ deal: Deal | null, vi
                     {createInput(index, 'passportDepartmentCode', 'Код подразделения')}
                     {createInput(index, 'addressRegister', 'Адрес регистрации')}
                     {createInput(index, 'addressActual', 'Адрес фактический')}
-                    {createInput(index, 'drivingLicenseNumber', 'Номер водительского уд')}
+                    {createInput(index, 'drivingLicenseNumber', '№ водительского удостоверения')}
                     {createInput(index, 'autoName', 'Марка и модель автомобиля')}
                     {createInput(index, 'autoNumber', 'Гос номер автомобиля')}
-                    {createInput(index, 'trailerNumber', 'Гос номер прицепа')}
                     {createInput(index, 'autoSts', 'СТС тягача')}
-                    {createInput(index, 'trailerName', 'Данные прицепа')}
+                    {createInput(index, 'trailerName', 'Марка и модель прицепа')}
+                    {createInput(index, 'trailerNumber', 'Гос номер прицепа')}
                     {createInput(index, 'trailerSts', 'СТС прицепа')}
                 </div>
             )
