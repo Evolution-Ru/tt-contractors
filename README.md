@@ -27,7 +27,7 @@ Watch for no errors in the console, other case repeat the previous steps please 
 May be you build only front becouse it is hard for server etc.
 ```
 cd tt-contractors/packages/front
-npm build 
+npm run build 
 ```
 ## Set crontab to handle reboots
 ```
